@@ -1,0 +1,61 @@
+body {
+  background-color: #ebf1f5;
+}
+
+.banner {
+  background-image: url("../images/banner.png");
+  width: 100%;
+  height: 319px;
+}
+
+.banner-header {
+  padding: 8px;
+  font-size: 40px;
+  line-height: 24px;
+  color: rgb(255, 255, 255);
+  font-family: "Roboto";
+  font-weight: 300;
+  text-align: center;
+  background-color: #000000;
+  opacity: 0.6;
+}
+
+.navbar-override {
+  height: 80px;
+  /* background-color: #333941 !important; */
+  opacity: 0.8;
+}
+
+.button-spacing {
+  margin-left: 15px;
+}
+
+.menu-item-right-border a {
+  /* border-right: 1px solid white; */
+}
+
+.btn-fullwidth {
+  width: 100%;
+}
+
+.sort-header {
+  background-color: #6c6e70;
+  opacity: 0.6;
+  padding: 5px;
+}
+
+.white-color {
+  color: white;
+}
+
+.footer {
+  padding: 5px;
+  /* height: 45px; */
+  background-color: #373b43;
+}
+
+.copy-right {
+  padding-top: 5px;
+  /* height: 45px; */
+  background-color: white;
+}
