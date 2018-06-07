@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/application.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+  <title>Go Pro</title>
+</head>
+
+<body class="">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-override">
+    <a class="navbar-brand" href="#"><img src="./images/Logo.png" alt=""></img></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav menu-item-right-border">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Product |<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#">Company |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="#">Contact |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Careers</a>
+        </li>
+        <!-- <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-info" type="button">Register</button>
+            <button class="btn btn-outline-light button-spacing" type="button">Login</button>
+          </form>
+        </li> -->
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="banner text-center" style="padding-top:150px">
+    <span class="banner-header">Welcome to </span>
+    <br>
+    <br>
+    <br>
+    <span class="banner-header">India's Leading Online Job and Recruitment Portal </span>
+  </div>
+  <br>
+  <h5>List of interviews</h5>
+  <br>
+  <div class="container">
+    <div class="row" data-bind="foreach: interviews" data-bind="visible: interviews().length>0">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            Name :<span class="card-title text-warning" data-bind="text: name"></span><br>
+            Price :<span class="card-title text-muted" data-bind="text: price"></span><br>
+            Description :<p class="card-text" data-bind="text: description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span data-bind="visible: ! interviews().length>0">No result</span>
+  </div>
+  <br>
+  <div class="footer container-fluid white-color">
+    <div class="row">
+      <div class="col-md-6 text-left">
+        PRODUCTS | COMPANY | BLOG | CONTACT | CAREERS
+      </div>
+      <div class="col-md-6 text-right">
+        Follow us: <i class="fab fa-facebook-square"></i> <i class="fab fa-twitter-square"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="copy-right container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-left">
+        Copyright @ 2018 MIHY.
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/knockout-3.4.2.js"></script>
+  <script src="./utils/api.js"></script>
+  <script src="./modules/interviews.js"></script>
+</body>
+
+</html>

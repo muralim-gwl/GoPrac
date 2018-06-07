@@ -48,7 +48,7 @@
     </div>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-info" type="button">Register</button>
-      <button class="btn btn-outline-light button-spacing" type="button">Login</button>
+      <button class="btn btn-outline-light button-spacing" type="button" data-bind="click:openLogin"><span data-bind="text:isLogin()?'Logout':'Login'"></span></button>
     </form>
   </nav>
 
@@ -60,26 +60,10 @@
     <span class="banner-header">India's Leading Online Job and Recruitment Portal </span>
   </div>
 
-  <!-- <div class="container-fluid" style="padding: 8px;background-color: white">
-    <div class="row">
-      <div class="col-md-6">
-        <form class="form-inline">
-          <div class="form-group">
-            <label for="inputPassword2" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary">Confirm identity</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-
-      </div>
-    </div>
-  </div> -->
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
-      <input class="form-control mx-sm-3 mb-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-info mb-2" type="submit">Search</button>
+      <input class="form-control mx-sm-3 mb-2" data-bind="textInput: searchPanelText" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-info mb-2" data-bind="click: searchPanel" type="button">Search</button>
     </form>
 
     <div class="form-row">
@@ -115,7 +99,7 @@
   <div class="sort-header container-fluid white-color">
     <div class="row">
       <div class="col-md-6 text-left">
-        You search for "PRODUCT MANAGER"
+        You search for "<span data-bind="text:searchPanelText"></span>""
       </div>
       <div class="col-md-6 text-right">
         sort <i class="fas fa-angle-down"></i>
@@ -124,7 +108,7 @@
   </div>
   <br>
   <div class="container">
-    <div class="row" data-bind="foreach: people">
+    <div class="row" data-bind="foreach: filteredPanelInfo">
       <div class="col-md-4">
         <div class="card">
           <img class="card-img-top" data-bind="attr: {src:url,alt:name}">
@@ -133,7 +117,7 @@
             <h6 class="card-title text-muted" data-bind="text: name"></h6>
             <p class="card-text" data-bind="text: description"></p>
             <p class="card-text text-muted"> <i class="fas fa-stopwatch"></i> <span data-bind="text: time"></span></p>
-            <a href="#" class="btn btn-info btn-fullwidth">Learn More</a>
+            <button class="btn btn-info btn-fullwidth" data-bind="click:$parent.getInterviews(id)">Learn More</button>
           </div>
         </div>
       </div>
@@ -160,13 +144,42 @@
   </div>
 
 
+  <!-- Login -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form data-bind="submit:login">
+            <div class="form-group">
+              <label for="USerID">USerID</label>
+              <input type="text" class="form-control" id="USerID" data-bind="textInput:username" aria-describedby="USerID" placeholder="Enter USerID" required>
+            </div>
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" data-bind="textInput:password" placeholder="Password" required>
+            </div>
+            <div class="text-danger" data-bind="text:errorMessage"></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-info">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/popper.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/knockout-3.4.2.js"></script>
+  <script src="./utils/api.js"></script>
   <script src="./modules/home.js"></script>
 </body>
 
